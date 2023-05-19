@@ -4,7 +4,7 @@ opkg update
 cd /tmp
 wget https://raw.githubusercontent.com/hasanzadekhalil/Teltonika-usb-failover/main/bondix-sane-vuci_202304061239-b0ccc80a.ipk
 echo "Installing Bondix..."
-opkg install - y bondix-sane-vuci_202304061239-b0ccc80a.ipk
+opkg install -y bondix-sane-vuci_202304061239-b0ccc80a.ipk
 opkg install -y usb-modeswitch
 network=/etc/config/network.bak
 if test -f "$network"; then
@@ -61,6 +61,7 @@ config member 'wanusb_member_balance'
 	option interface 'wanusb'
 	option weight '1'
 EOT
+fi
 echo "Adding UsbWan to Failover Configuration"
 mwan='/etc/config/mwan3'
 config1="list use_member 'wan_member_mwan'"
