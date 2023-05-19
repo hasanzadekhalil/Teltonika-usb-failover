@@ -4,8 +4,8 @@ opkg update
 cd /tmp
 wget https://raw.githubusercontent.com/hasanzadekhalil/Teltonika-usb-failover/main/bondix-sane-vuci_202304061239-b0ccc80a.ipk
 echo "Installing Bondix..."
-opkg install -y bondix-sane-vuci_202304061239-b0ccc80a.ipk
-opkg install -y usb-modeswitch
+opkg install bondix-sane-vuci_202304061239-b0ccc80a.ipk
+opkg install usb-modeswitch
 network=/etc/config/network.bak
 if test -f "$network"; then
 	echo "Network backup exist"
