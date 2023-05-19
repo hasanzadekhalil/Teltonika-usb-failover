@@ -70,5 +70,15 @@ sed -i "s/$config1/$config1correct/g" "$mwan"
 config2="list use_member 'wan_member_balance'"
 config2correct="list use_member 'wanusb_member_balance'"
 sed -i "s/$config2/$config2correct/g" "$mwan"
+config3="config interface 'mob1s1a1'
+	option interval '3'
+	option enabled '0'
+	option family 'ipv4'
+"
+config3correct="config interface 'mob1s1a1'
+	option interval '3'
+	option family 'ipv4'
+	option enabled '1'"
+sed -i "s/$config3/$config3correct/g" "$mwan"    
 echo "Rebooting Router..."
 reboot
