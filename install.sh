@@ -66,9 +66,9 @@ echo "Adding UsbWan to Failover Configuration"
 mwan='/etc/config/mwan3'
 config1="list use_member 'wan_member_mwan'"
 config1correct="list use_member 'wanusb_member_mwan'"
-sed -i "s/$config1/$config1correct/g" "mwan"
+sed -i "s/$config1/$config1correct/g" "$mwan"
 config2="list use_member 'wan_member_balance'"
 config2correct="list use_member 'wanusb_member_balance'"
-sed -i "s/$config2/$config2correct/g" "mwan"
+sed -i "s/$config2/$config2correct/g" "$mwan"
 echo "Rebooting Router..."
 reboot
