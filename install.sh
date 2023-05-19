@@ -6,7 +6,6 @@ wget https://raw.githubusercontent.com/hasanzadekhalil/Teltonika-usb-failover/ma
 echo "Installing Bondix..."
 opkg install - y bondix-sane-vuci_202304061239-b0ccc80a.ipk
 opkg install -y usb-modeswitch
-
 network=/etc/config/network.bak
 if test -f "$network"; then
 	echo "Network backup exist"
@@ -15,8 +14,6 @@ else
 	cp /etc/config/network /etc/config/network.bak
 fi
 cp /etc/config/network /etc/config/network.bak
-
-
 if grep -R "config interface 'wanusb'" /etc/config/network; then
 	echo "WanUSB interface Configuration exist!"
 else
@@ -28,7 +25,6 @@ config interface 'wanusb'
 	option proto 'dhcp'
 EOT
 fi
-
 mwan3=/etc/config/mwan3.bak
 if test -f "$mwan3"; then
 	echo "Failover backup exist"
@@ -36,8 +32,6 @@ else
 	echo "Creating Failover backup..."
 	cp /etc/config/mwan3 /etc/config/mwan3.bak
 fi
-
-
 if grep -R "config interface 'wanusb'" /etc/config/network; then
 	echo "Failover Configuration exist!"
 else
@@ -67,7 +61,6 @@ config member 'wanusb_member_balance'
 	option interface 'wanusb'
 	option weight '1'
 EOT
-
 echo "Adding UsbWan to Failover Configuration"
 mwan='/etc/config/mwan3'
 config1="list use_member 'wan_member_mwan'"
