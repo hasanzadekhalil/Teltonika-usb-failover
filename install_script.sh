@@ -38,10 +38,10 @@ else
 	echo "Installing Failover Configuration"
 cat <<EOT>> /etc/config/mwan3
 config interface 'wanusb'
-	option enabled '1'
-	option interval '3'
+	option interval '4'
 	option family 'ipv4'
-	
+	option enabled '1'
+
 config condition
 	option interface 'wanusb'
 	option track_method 'ping'
