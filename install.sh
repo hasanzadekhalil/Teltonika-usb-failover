@@ -30,6 +30,7 @@ if grep -R "config interface 'wanusb'" /etc/config/mwan3; then
 else
 	echo "Installing Failover Configuration"
   mwan3=/etc/config/mwan3.bak
+fi
 if test -f "$mwan3"; then
 	echo "Failover backup exist"
 else
